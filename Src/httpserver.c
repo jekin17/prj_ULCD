@@ -12,7 +12,19 @@
 #endif
 
 const static char http_html_hdr[] = "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";
-const static char http_index_html[] = "<html><head><title>Congrats!</title></head><body><h1>Welcome to our lwIP HTTP server!</h1><p>This is a small test page, served by httpserver-netconn.</body></html>";
+const static char http_index_html[] = "<html>"
+		"<head>"
+		"<title>Congrats!</title>"
+		"</head>"
+		"<body>"
+		"<h1>Welcome to our lwIP HTTP server!</h1>"
+		"<p>This is a small test page, served by httpserver-netconn."
+		"<p>"
+		"<input type=\"text\" id=\"id\" style=\"width: 60px\" placeholder=\"ID\" />"
+		"<p>"
+		"<input type=\"button\" class=\"btn\" id=\"addStart\" value=\"addStart\" onclick=\"add(\'START\')\"/>"
+		"</body>"
+		"</html>";
 
 /** Serve one HTTP connection accepted in the http thread */
 static void
