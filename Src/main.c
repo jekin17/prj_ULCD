@@ -51,7 +51,9 @@
 #include "fmc.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "lcd_rm68120_drv.h"
+#include "lcd_low_layer.h"
+#include "lcd_fonts.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -97,7 +99,9 @@ int main(void)
   MX_UART5_Init();
 
   /* USER CODE BEGIN 2 */
-
+  HAL_GPIO_WritePin(lcd_BL_GPIO_Port,lcd_BL_Pin,GPIO_PIN_SET);
+  lcdInit();
+  Put_Str_to_Lcd(10,10,Eng,"Hello", BLACK,WHITE);
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

@@ -28,9 +28,6 @@ void lcdInit(void)
 	lcdSendData(0xff);
 	lcdSendData(0b00000101);
 	lcdSendCmd(0x2C00);
-	//lcdSendCmd(0x0C00);
-	//uint16_t data = lcdGetData();
-	//if(data > 0x00)
 	lcdClrArea(0,480,0,800);
 }
 //=====================================================================================================//
@@ -38,13 +35,19 @@ void lcdSetWindow(unsigned int xSP, unsigned int xEP, unsigned int ySP, unsigned
 {
 	lcdSendCmd(reg_SET_COLUMN_ADDRESS);
 	lcdSendData((unsigned char)(xSP >> 8));
+	lcdSendCmd(reg_SET_COLUMN_ADDRESS+1);
 	lcdSendData((unsigned char) xSP);
+	lcdSendCmd(reg_SET_COLUMN_ADDRESS+2);
 	lcdSendData((unsigned char)(xEP >> 8));
+	lcdSendCmd(reg_SET_COLUMN_ADDRESS+3);
 	lcdSendData((unsigned char) xEP);
 	lcdSendCmd(reg_SET_PAGE_ADDRESS);
 	lcdSendData((unsigned char)(ySP >> 8));
+	lcdSendCmd(reg_SET_PAGE_ADDRESS+1);
 	lcdSendData((unsigned char) ySP);
+	lcdSendCmd(reg_SET_PAGE_ADDRESS+2);
 	lcdSendData((unsigned char)(yEP >> 8));
+	lcdSendCmd(reg_SET_PAGE_ADDRESS+3);
 	lcdSendData((unsigned char) yEP);
 }
 
