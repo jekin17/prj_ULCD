@@ -44,9 +44,10 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "cmsis_os.h"
+#include "fatfs.h"
 #include "i2c.h"
 #include "lwip.h"
-#include "usart.h"
+#include "sdio.h"
 #include "gpio.h"
 #include "fmc.h"
 
@@ -60,7 +61,11 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
+FATFS fileSystem;
+FIL testFile;
+uint8_t testBuffer[6] = "herase";
+FRESULT res;
+UINT testBytes;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,7 +101,7 @@ int main(void)
   MX_GPIO_Init();
   MX_FMC_Init();
   MX_I2C1_Init();
-  MX_UART5_Init();
+  MX_SDIO_SD_Init();
 
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(lcd_BL_GPIO_Port,lcd_BL_Pin,GPIO_PIN_SET);
@@ -117,7 +122,17 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
+	  if(f_mount(&fileSystem, SD_Path, 1) == FR_OK)
+	  {
+		  uint8_t path[13] = "testfile.txt";
+		     path[12] = '\0';
 
+		     res = f_open(&testFile, (char*)path, FA_WRITE | FA_CREATE_ALWAYS);
+
+		     res = f_write(&testFile, testBuffer, 16, &testBytes);
+
+		     res = f_close(&testFile);
+	  }
   /* USER CODE BEGIN 3 */
 
   }

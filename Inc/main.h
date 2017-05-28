@@ -54,8 +54,6 @@
 
 #define lcd_BL_Pin GPIO_PIN_13
 #define lcd_BL_GPIO_Port GPIOC
-#define touch_IRQ_Pin GPIO_PIN_15
-#define touch_IRQ_GPIO_Port GPIOA
 #define lcd_RESET_Pin GPIO_PIN_15
 #define lcd_RESET_GPIO_Port GPIOG
 

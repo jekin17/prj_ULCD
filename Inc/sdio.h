@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * File Name          : USART.h
+  * File Name          : SDIO.h
   * Description        : This file provides code for the configuration
-  *                      of the USART instances.
+  *                      of the SDIO instances.
   ******************************************************************************
   *
   * Copyright (c) 2017 STMicroelectronics International N.V. 
@@ -42,8 +42,8 @@
   ******************************************************************************
   */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __usart_H
-#define __usart_H
+#ifndef __sdio_H
+#define __sdio_H
 #ifdef __cplusplus
  extern "C" {
 #endif
@@ -56,7 +56,7 @@
 
 /* USER CODE END Includes */
 
-extern UART_HandleTypeDef huart5;
+extern SD_HandleTypeDef hsd;
 
 /* USER CODE BEGIN Private defines */
 
@@ -64,7 +64,7 @@ extern UART_HandleTypeDef huart5;
 
 extern void Error_Handler(void);
 
-void MX_UART5_Init(void);
+void MX_SDIO_SD_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
@@ -73,7 +73,7 @@ void MX_UART5_Init(void);
 #ifdef __cplusplus
 }
 #endif
-#endif /*__ usart_H */
+#endif /*__ sdio_H */
 
 /**
   * @}
