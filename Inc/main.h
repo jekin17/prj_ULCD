@@ -54,6 +54,8 @@
 
 #define lcd_BL_Pin GPIO_PIN_13
 #define lcd_BL_GPIO_Port GPIOC
+#define led_RED_Pin GPIO_PIN_14
+#define led_RED_GPIO_Port GPIOB
 #define lcd_RESET_Pin GPIO_PIN_15
 #define lcd_RESET_GPIO_Port GPIOG
 

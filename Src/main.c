@@ -61,11 +61,7 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-FATFS fileSystem;
-FIL testFile;
-uint8_t testBuffer[6] = "herase";
-FRESULT res;
-UINT testBytes;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -122,17 +118,7 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-	  if(f_mount(&fileSystem, SD_Path, 1) == FR_OK)
-	  {
-		  uint8_t path[13] = "testfile.txt";
-		     path[12] = '\0';
 
-		     res = f_open(&testFile, (char*)path, FA_WRITE | FA_CREATE_ALWAYS);
-
-		     res = f_write(&testFile, testBuffer, 16, &testBytes);
-
-		     res = f_close(&testFile);
-	  }
   /* USER CODE BEGIN 3 */
 
   }

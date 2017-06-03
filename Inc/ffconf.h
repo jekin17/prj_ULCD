@@ -137,7 +137,7 @@
 /   874  - Thai (OEM, Windows)
 /   1    - ASCII (No extended character. Valid for only non-LFN configuration.) */
 
-#define _USE_LFN     3    /* 0 to 3 */
+#define _USE_LFN     0    /* 0 to 3 */
 #define _MAX_LFN     255  /* Maximum LFN length to handle (12 to 255) */
 /* The _USE_LFN option switches the LFN feature.
 /
@@ -152,7 +152,7 @@
 /  memory for the working buffer, memory management functions, ff_memalloc() and
 /  ff_memfree(), must be added to the project. */
 
-#define _LFN_UNICODE    1 /* 0:ANSI/OEM or 1:Unicode */
+#define _LFN_UNICODE    0 /* 0:ANSI/OEM or 1:Unicode */
 /* This option switches character encoding on the API. (0:ANSI/OEM or 1:Unicode)
 /  To use Unicode string for the path name, enable LFN feature and set _LFN_UNICODE
 /  to 1. This option also affects behavior of string I/O functions. */
